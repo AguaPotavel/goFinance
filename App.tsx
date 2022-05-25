@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
-import { useFonts } from 'expo-font';
-import { DMSans_400Regular, DMSans_700Bold } from '@expo-google-fonts/dm-sans';
+// import { useFonts } from 'expo-font';
+import { Poppins_400Regular, Poppins_500Medium, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
 import { ThemeProvider } from 'styled-components/native';
 
 import theme from './src/styles/theme';
@@ -12,8 +12,9 @@ import Routes from './src/Routes';
 
 export default function App() {
   const [isLoaded] = useFonts({
-    DMSans_400Regular,
-    DMSans_700Bold
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_700Bold,
   })
   
   if (!isLoaded) {
