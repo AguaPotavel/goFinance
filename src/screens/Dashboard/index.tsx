@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { AnimatePresence } from 'framer-motion';
 import { useTheme } from 'styled-components';
 
+
 import { 
     Container,
     Header,
@@ -16,12 +17,39 @@ import {
     HighlightCards,
     Transactions,
     Title,
+    TransactionList,
 } from './styles';
 
 import { HighlightCard } from '../../components/HighlightCard';
+import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
+
+export interface DataListProps extends TransactionCardProps {
+    id: string,
+}
 
 
 export function Dashboard(){
+
+    const Lista: DataListProps[] = [
+        {
+            id: '1',
+            name: 'string',
+            amount: 'string',
+            category: 'leisure',
+            date: 'string',
+            type: 'positive'
+        },
+        {   
+            id: '2',
+            name: 'string',
+            amount: 'string',
+            category: 'leisure',
+            date: 'string',
+            type: 'positive'
+        }
+    ]
+
+
     return (
         <Container>
             <Header>
@@ -47,6 +75,12 @@ export function Dashboard(){
                 <Title>
                     Listagem
                 </Title>
+                <TransactionList
+                    data={Lista}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <TransactionCard data={item}/>}
+                />
+                
             </Transactions>
         </Container>
     );
